@@ -33,7 +33,7 @@ namespace Simulator{
             window.SetVisible(true);
             window.Closed += new EventHandler(OnClosed);
 
-            Filed field = new Filed(114, 114 , "C:/Users/Pavlo/Desktop/IT_Projet/Simulator/Simulator/Tilemaps.png");
+            Filed field = new Filed(114, 114 , "Tilemaps.png");
 
             field.fX = 0;
             field.fY = 0;
@@ -47,11 +47,11 @@ namespace Simulator{
 
             while (true) {
 
-
-                Bot[] bot = new Bot[64];
+  
+                Bot[] bot = new Bot[256];
                 for (int i = 0; i < bot.Length; i++)
                 {
-                    bot[i] = new Bot((Rotation)r.Next(7), 100);
+                    bot[i] = new Bot((Rotation)r.Next(7), r.Next(50) + 10);
                     bool OFF = true;
 
                     while (OFF)
@@ -129,7 +129,7 @@ namespace Simulator{
             
             Bot[] NewArrayBot = new Bot[arrayBot.Length + 1];
             
-            NewArrayBot[index] = new Bot((Rotation)r.Next(7), 500);
+            NewArrayBot[index] = new Bot((Rotation)r.Next(7), r.Next(700));
             NewArrayBot[index].SetPosition(valueBot.GetPosition());
             NewArrayBot[index].Comands = valueBot.Comands;
             if (r.Next(8) == 8) { NewArrayBot[index].Mutation(); }
